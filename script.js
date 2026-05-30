@@ -1,262 +1,38 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+const targetDate = new Date("June 27, 2026 00:00:00").getTime();
 
-body{
-font-family:'Montserrat',sans-serif;
-background:#08111f;
-color:white;
-overflow-x:hidden;
-line-height:1.6;
-}
+function updateCountdown(){
 
-.hero{
-position:relative;
-min-height:100vh;
+const now = new Date().getTime();
 
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
-url("https://www.theswimmingpoolstore.com/wp-content/uploads/2019/01/iStock-623285570-e1546976710597.jpg");
+const distance = targetDate - now;
 
-background-size:cover;
-background-position:center;
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+const hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24))
+/
+(1000 * 60 * 60)
+);
 
-padding:20px;
-}
+const minutes = Math.floor(
+(distance % (1000 * 60 * 60))
+/
+(1000 * 60)
+);
 
-.hero-content{
-max-width:900px;
-}
+const seconds = Math.floor(
+(distance % (1000 * 60))
+/
+1000
+);
 
-.hero-logo{
-width:min(90vw,650px);
-height:auto;
-display:block;
-margin:0 auto 20px auto;
-}
-
-.anniversary-text{
-color:#d4af37;
-font-size:1.1rem;
-font-weight:700;
-letter-spacing:4px;
-margin-bottom:25px;
-}
-
-.hero-message{
-font-size:1.2rem;
-margin-bottom:15px;
-}
-
-.event-date{
-font-size:1.1rem;
-font-weight:700;
-color:#d4af37;
-margin-bottom:25px;
-}
-
-.main-btn{
-display:inline-block;
-padding:16px 32px;
-background:#d4af37;
-color:#000;
-font-weight:700;
-text-decoration:none;
-border-radius:50px;
-transition:.3s;
-}
-
-.main-btn:hover{
-transform:translateY(-3px);
-}
-
-.countdown{
-padding:40px 20px;
-text-align:center;
-}
-
-.countdown h2{
-margin-bottom:25px;
-color:#d4af37;
-}
-
-.timer{
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:nowrap;
-overflow-x:auto;
-padding-bottom:5px;
-}
-
-.timer div{
-background:#172742;
-padding:18px;
-border-radius:20px;
-min-width:85px;
-}
-
-.timer span{
-display:block;
-font-size:2rem;
-font-weight:900;
-color:#d4af37;
-}
-
-.day-section{
-padding:40px 20px;
-}
-
-.dark{
-background:#0f1b30;
-}
-
-.day-section h2{
-text-align:center;
-color:#d4af37;
-margin-bottom:25px;
-}
-
-.glass-card{
-background:rgba(5,15,35,.75);
-backdrop-filter:blur(12px);
--webkit-backdrop-filter:blur(12px);
-
-padding:22px;
-border-radius:24px;
-
-margin-bottom:18px;
-
-border:1px solid rgba(212,175,55,.25);
-
-box-shadow:
-0 0 25px rgba(0,0,0,.25);
-}
-
-.glass-card h3{
-margin-bottom:12px;
-}
-
-.glass-card ul{
-padding-left:20px;
-margin:15px 0;
-}
-
-.pricing{
-text-align:center;
-padding:50px 20px;
-}
-
-.pricing h2{
-margin-bottom:20px;
-}
-
-.price{
-font-size:clamp(3rem,12vw,5rem);
-font-weight:900;
-color:#26c6da;
-line-height:1;
-margin-bottom:20px;
-}
-
-.small-note{
-opacity:.8;
-margin:15px 0 25px;
-}
-
-.final-message{
-text-align:center;
-padding:60px 20px;
-background:black;
-}
-
-.final-message h2{
-color:#d4af37;
-margin-bottom:20px;
-}
-
-.final-message h3{
-font-size:1.6rem;
-margin-bottom:20px;
-}
-
-.scroll-indicator{
-font-size:2rem;
-text-align:center;
-margin-top:15px;
-animation:bounce 2s infinite;
-opacity:.7;
-}
-
-@keyframes bounce{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(10px);
-}
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
 
 }
 
-.whatsapp-float{
-position:fixed;
-bottom:20px;
-right:20px;
+updateCountdown();
 
-width:60px;
-height:60px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:28px;
-text-decoration:none;
-
-z-index:9999;
-
-box-shadow:
-0 0 25px rgba(37,211,102,.5);
-}
-
-@media(max-width:768px){
-
-.hero-logo{
-width:95%;
-}
-
-.hero-message{
-font-size:1rem;
-}
-
-.timer{
-gap:8px;
-}
-
-.timer div{
-min-width:75px;
-padding:15px;
-}
-
-.timer span{
-font-size:1.6rem;
-}
-
-.final-message h3{
-font-size:1.3rem;
-}
-
-}
+setInterval(updateCountdown,1000);
