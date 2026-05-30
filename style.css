@@ -12,9 +12,11 @@ overflow-x:hidden;
 line-height:1.6;
 }
 
+/* HERO */
+
 .hero{
 position:relative;
-min-height:50vh;
+min-height:60vh;
 
 background:
 linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
@@ -28,7 +30,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 
-padding:20px;
+padding:30px 20px;
 }
 
 .hero-content{
@@ -62,6 +64,8 @@ color:#d4af37;
 margin-bottom:25px;
 }
 
+/* BOTONES */
+
 .main-btn{
 display:inline-block;
 padding:16px 32px;
@@ -77,8 +81,28 @@ transition:.3s;
 transform:translateY(-3px);
 }
 
+.secondary-btn{
+display:inline-block;
+margin-top:12px;
+padding:12px 24px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+background:transparent;
+color:#d4af37;
+border:2px solid #d4af37;
+transition:.3s;
+}
+
+.secondary-btn:hover{
+background:#d4af37;
+color:#08111f;
+}
+
+/* COUNTDOWN */
+
 .countdown{
-padding:40px 20px;
+padding:30px 20px;
 text-align:center;
 }
 
@@ -110,6 +134,41 @@ font-weight:900;
 color:#d4af37;
 }
 
+/* PLAYLIST */
+
+.playlist-section{
+padding:40px 20px;
+text-align:center;
+background:#0f1b30;
+}
+
+.playlist-section h2{
+color:#d4af37;
+margin-bottom:12px;
+}
+
+.playlist-section p{
+max-width:700px;
+margin:0 auto 20px auto;
+}
+
+.spotify-btn{
+display:inline-block;
+padding:14px 28px;
+background:#1DB954;
+color:white;
+font-weight:700;
+text-decoration:none;
+border-radius:50px;
+transition:.3s;
+}
+
+.spotify-btn:hover{
+transform:translateY(-3px);
+}
+
+/* DÍAS */
+
 .day-section{
 padding:40px 20px;
 }
@@ -124,12 +183,16 @@ color:#d4af37;
 margin-bottom:25px;
 }
 
+/* TARJETAS */
+
 .glass-card{
 background:rgba(5,15,35,.75);
+
 backdrop-filter:blur(12px);
 -webkit-backdrop-filter:blur(12px);
 
 padding:22px;
+
 border-radius:24px;
 
 margin-bottom:18px;
@@ -149,6 +212,19 @@ padding-left:20px;
 margin:15px 0;
 }
 
+.glass-card p{
+margin-bottom:10px;
+}
+
+.dress-note{
+margin-top:10px;
+margin-bottom:10px;
+font-size:.95rem;
+opacity:.9;
+}
+
+/* PRECIOS */
+
 .pricing{
 text-align:center;
 padding:50px 20px;
@@ -164,12 +240,19 @@ font-weight:900;
 color:#26c6da;
 line-height:1;
 margin-bottom:20px;
+word-break:break-word;
+}
+
+.pricing p{
+margin-bottom:12px;
 }
 
 .small-note{
 opacity:.8;
-margin:15px 0 25px;
+margin:20px 0 25px;
 }
+
+/* FINAL */
 
 .final-message{
 text-align:center;
@@ -187,37 +270,7 @@ font-size:1.6rem;
 margin-bottom:20px;
 }
 
-.scroll-indicator{
-
-position:absolute;
-
-bottom:15px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-font-size:2rem;
-
-opacity:.7;
-
-animation:bounce 2s infinite;
-
-z-index:10;
-
-}
-
-@keyframes bounce{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(10px);
-}
-
-}
+/* WHATSAPP */
 
 .whatsapp-float{
 position:fixed;
@@ -243,6 +296,8 @@ z-index:9999;
 box-shadow:
 0 0 25px rgba(37,211,102,.5);
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -270,48 +325,12 @@ font-size:1.6rem;
 .final-message h3{
 font-size:1.3rem;
 }
-  .secondary-btn{
 
-display:inline-block;
-
-margin-top:12px;
-
-padding:12px 24px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-font-weight:700;
-
-background:transparent;
-
-color:#d4af37;
-
-border:2px solid #d4af37;
-
-transition:.3s;
-
-}
-
-.secondary-btn:hover{
-
-background:#d4af37;
-
-color:#08111f;
-
-}
-
-.dress-note{
-
-margin-top:10px;
-
-margin-bottom:10px;
-
-font-size:.95rem;
-
-opacity:.9;
-
+.main-btn,
+.secondary-btn,
+.spotify-btn{
+width:100%;
+max-width:320px;
 }
 
 }
