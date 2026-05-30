@@ -188,11 +188,23 @@ margin-bottom:20px;
 }
 
 .scroll-indicator{
+
+position:absolute;
+
+bottom:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
 font-size:2rem;
-text-align:center;
-margin-top:15px;
-animation:bounce 2s infinite;
+
 opacity:.7;
+
+animation:bounce 2s infinite;
+
+z-index:10;
+
 }
 
 @keyframes bounce{
