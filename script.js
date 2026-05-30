@@ -1,4 +1,11 @@
-const targetDate = new Date("June 27, 2026 00:00:00").getTime();
+const targetDate = new Date(
+2026,
+5,
+27,
+0,
+0,
+0
+).getTime();
 
 function updateCountdown(){
 
@@ -6,7 +13,20 @@ const now = new Date().getTime();
 
 const distance = targetDate - now;
 
-const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+if(distance <= 0){
+
+document.getElementById("days").textContent = 0;
+document.getElementById("hours").textContent = 0;
+document.getElementById("minutes").textContent = 0;
+document.getElementById("seconds").textContent = 0;
+
+return;
+
+}
+
+const days = Math.floor(
+distance / (1000 * 60 * 60 * 24)
+);
 
 const hours = Math.floor(
 (distance % (1000 * 60 * 60 * 24))
@@ -26,10 +46,10 @@ const seconds = Math.floor(
 1000
 );
 
-document.getElementById("days").innerHTML = days;
-document.getElementById("hours").innerHTML = hours;
-document.getElementById("minutes").innerHTML = minutes;
-document.getElementById("seconds").innerHTML = seconds;
+document.getElementById("days").textContent = days;
+document.getElementById("hours").textContent = hours;
+document.getElementById("minutes").textContent = minutes;
+document.getElementById("seconds").textContent = seconds;
 
 }
 
